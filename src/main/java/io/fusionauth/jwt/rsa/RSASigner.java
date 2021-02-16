@@ -62,8 +62,9 @@ public class RSASigner implements Signer {
 
     this.privateKey = pem.getPrivateKey();
     int keyLength = this.privateKey.getModulus().bitLength();
-    if (keyLength < 2048) {
-      throw new InvalidKeyLengthException("Key length of [" + keyLength + "] is less than the required key length of 2048 bits.");
+    //if (keyLength < 2048) {
+    if (keyLength < 1024) {
+      throw new InvalidKeyLengthException("Key length of [" + keyLength + "] is less than the required key length of 1024 bits.");
     }
   }
 
